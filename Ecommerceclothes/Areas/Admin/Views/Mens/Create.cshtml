@@ -1,0 +1,88 @@
+﻿
+
+
+
+
+
+
+
+@model Ecommerceclothes.Models.ViewModel.MensViewModel
+
+@using Ecommerceclothes.Extensions
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<br /><br />
+
+<h4 class="text-info"> Mens Products Create </h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Mens.Name" class="control-label"></label>
+                <input asp-for="Mens.Name" class="form-control" />
+                <span asp-validation-for="Mens.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mens.Price" class="control-label"></label>
+                <input asp-for="Mens.Price" class="form-control" />
+                <span asp-validation-for="Mens.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Mens.Available" /> @Html.DisplayNameFor(model => model.Mens.Available)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mens.Image" class="control-label"></label>
+                <input type="file" name="files" class="form-control" />
+
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Mens.ShadeColor" class="control-label"></label>
+                <input asp-for="Mens.ShadeColor" class="form-control" />
+                <span asp-validation-for="Mens.ShadeColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductTypes" class="control-label"></label>
+                <select asp-for="@Model.Mens.ProductTypeId" class="form-control" asp-items="Model.ProductTypes.ToSelectListItem(Model.Mens.ProductTypeId)"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpecialTags" class="control-label"></label>
+                <select asp-for="@Model.Mens.SpecialTagsID" class="form-control" asp-items="Model.SpecialTags.ToSelectListItem(Model.Mens.SpecialTagsID)"></select>
+
+                @*asp-items="ViewBag.SpecialTagsID*@
+            </div>
+            @*<div class="form-group row">
+                    <div class="col-2">
+                        <label asp-for="SpecialTags"></label>
+                    </div>
+                    <div class="col-5">
+                        <select asp-for="@Model.Products.SpecialTagsID" asp-items="Model.SpecialTags.ToSelectListItem(Model.Products.SpecialTagsID)" class="form-control"></select>
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+                &nbsp;&nbsp;
+
+                <a asp-action="Index" class="btn btn-default">Back to List</a>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

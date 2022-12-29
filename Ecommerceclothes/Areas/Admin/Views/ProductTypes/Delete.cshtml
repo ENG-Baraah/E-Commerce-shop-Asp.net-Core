@@ -1,0 +1,27 @@
+﻿@model Ecommerceclothes.Models.ProductTypes
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br/><br/>
+
+<h4 class="text-info">هل أنت متأكد من حذف هذا المنتج ?</h4><br/>
+<div>
+    <h4 class="text-info">نوع المنتج</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-default">رجوع إلى قائمة أنواع المنتجات</a>
+    </form>
+</div>

@@ -1,0 +1,87 @@
+﻿
+
+
+@model Ecommerceclothes.Models.ViewModel.WomensViewModel
+@using Ecommerceclothes.Extensions
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br /><br />
+
+<h4 class="text-info">Are you sure you want to delete this?</h4><br />
+
+
+<br />
+<h2 class="text-info">Delete Womens Product</h2>
+<form method="post">
+    <div class="p-4 border rounded row">
+        <input hidden asp-for="Womens.Id" />
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Womens.Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Womens.Name" readonly class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Womens.Price"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Womens.Price" readonly class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="ProductTypes"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Womens.ProductTypes.Name" readonly class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="SpecialTags"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Womens.SpecialTags.Name" readonly class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Womens.ShadeColor"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Womens.ShadeColor" readonly class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Womens.Available"></label>
+                </div>
+                <div class="col-8">
+                    <input type="checkbox" readonly class="form-control" asp-for="Womens.Available" />
+                </div>
+            </div>
+        </div>
+        <div class="col-1">
+        </div>
+        <div class="col-3">
+            <img src="@Model.Womens.Image" width="100%" style="border-radius:5px; border:1px solid #bbb9b9;" />
+        </div>
+
+        <br />
+        <div class="form-group">
+            <input type="submit" class="btn btn-danger" value="Delete" />
+            <a asp-action="Index" class="btn btn-success">Back to List</a>
+        </div>
+    </div>
+</form>
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

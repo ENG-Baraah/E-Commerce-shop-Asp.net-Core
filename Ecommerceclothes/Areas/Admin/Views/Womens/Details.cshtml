@@ -1,0 +1,60 @@
+﻿@model Ecommerceclothes.Models.Womens
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Womens</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Available)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Available)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShadeColor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShadeColor)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductTypes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductTypes.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialTags)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SpecialTags.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

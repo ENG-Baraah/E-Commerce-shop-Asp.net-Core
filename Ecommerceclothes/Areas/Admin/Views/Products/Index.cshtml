@@ -1,0 +1,92 @@
+﻿
+@model IEnumerable<Ecommerceclothes.Models.Products>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<br/><br/>
+<div class="row">
+    <div class="col-6">
+       
+        <h2 class="text-info"> قائمة المنتجات المتوفرة</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; منتج جديد </a>
+    </div>
+</div>
+<br />
+
+<table class="table table-hover table-bordered  border">
+    <thead>
+        <tr class=" table-info">
+            <th>
+               @* @Html.DisplayNameFor(model => model.Name)*@
+                اسم المنتج
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Price)*@
+                سعر المنتج
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.Available)*@
+                هل المنتج متاح؟
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>*@
+            @*<th>
+                    @Html.DisplayNameFor(model => model.ShadeColor)
+                </th>*@
+            <th>
+               @* @Html.DisplayNameFor(model => model.ProductTypes)*@
+                نوع المنتج
+            </th>
+            <th>
+               @* @Html.DisplayNameFor(model => model.SpecialTags)*@
+                ماركة المنتج
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class=" table-info">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Available)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Image)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShadeColor)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductTypes.Name)
+                </td>
+                <td>
+                    @if (!item.SpecialTags.Name.Equals("--None--"))
+                    {
+                        @Html.DisplayFor(modelItem => item.SpecialTags.Name)
+                    }
+
+                </td>
+                <td align="right">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">تعديل</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-success">تفاصيل</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">حذف</a>
+                    @*  <partial name="_TableButtonPartial" model="item.Id" />*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
